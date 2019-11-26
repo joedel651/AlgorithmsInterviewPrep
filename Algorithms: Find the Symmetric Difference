@@ -1,0 +1,27 @@
+function sym(arr) {
+ // Convert the argument object into a proper array
+  var args = Array.prototype.slice.call(arguments);
+
+
+//compare one array to the other and filter out anything that is included in both
+var getDiff = function(arr1, arr2) {
+ return arr1.concat(arr2).filter(x => !arr1.includes(x) | !arr2.includes(x));
+
+}
+
+//call the helper function 
+//getDiff allows us to use the solution for intermediate algorithms to 
+//simplify the problem 
+var summary = args.reduce(getDiff, []);
+
+//...new set is the easiest way to remove duplicates from an array
+let unique = [...new Set(summary)];
+
+
+return unique;
+ 
+
+  
+}
+
+console.log(sym([1,2, 3, 3], [5, 2, 1, 4]));
