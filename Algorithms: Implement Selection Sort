@@ -1,0 +1,29 @@
+function selectionSort(array) {
+  // change code below this line
+  //helper function to swap 2 elements 
+  function swap(arr,a, b){
+    //create a temp variable to pass to b what equaled before it was reassigned
+    let temp = arr[a]
+    arr[a] = arr[b]
+    arr[b] = temp
+  }
+// n^2 time irrating through with i + 1 as an argument so it will essentially create a
+// a subarray as it goes through finding the min of what is left
+  for(let i = 0; i<array.length; i++){
+    let min = i
+    for(let j=i+1; j<array.length; j++){
+//reassign the min 
+      if(array[min] > array[j]){
+        min = j
+      }
+//swap the min with i and then go back to the first loop so we can do it again for the remaining values 
+      swap(array, min, i)
+    }
+  }
+  //return the result
+  return array;
+  // change code above this line
+}
+
+
+console.log(selectionSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]));
