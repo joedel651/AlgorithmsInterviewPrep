@@ -1,0 +1,31 @@
+// https://www.youtube.com/watch?v=WWLR6iOhpUU
+//I struggled to figure this one out but kept getting stuck 
+//similar implimentation 
+
+function pairwise(arr, arg) {
+//define the total of the indices 
+//have an array of values that equal arr
+let total = 0;
+let checkIndex = []
+//iterate through all the possibilites 
+for(let i=0;i < arr.length; i++){
+  for(let j=i+1;j < arr.length; j++){
+
+//deleting the duplicates at the end did not work the first time
+//because you could have the same pairs at different indicies so that strategy gives the wrong answer
+
+//use index of to check if we have already have it in our array 
+//if not push it in and incriment the total
+    if(arr[i]+arr[j] ===arg && checkIndex.indexOf(i) == -1 &&  checkIndex.indexOf(j) == -1){ checkIndex.push(i)
+    checkIndex.push(j)
+    total += i+j
+    
+    }
+
+  }
+}
+//return the total we dont care about the check index array it is a placeholder
+  return total;
+}
+
+pairwise([1,4,2,3,0,5], 7);
