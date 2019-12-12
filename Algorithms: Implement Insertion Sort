@@ -1,0 +1,30 @@
+ function insertionSort(array) {
+  // change code below this line
+  function swap (a,b,array){
+    let temp = a
+    a = b
+    b = temp 
+  }
+
+ 
+        for (let i = 1; i < array.length; ++i) { 
+            let key = array[i]; 
+            let j = i - 1; 
+  
+            // Move elements of arr[0..i-1], 
+            // that are greater than key, 
+            // to one position ahead of 
+            // their current position 
+            while (j >= 0 && array[j] > key) {
+              // if the value contained in j is greater than the one before it 
+              //swap it with the one in front of it  
+                array[j + 1] = array[j]; 
+                j = j - 1; 
+            } 
+            array[j + 1] = key; 
+        } 
+  return array;
+  // change code above this line
+}
+
+insertionSort([1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]);
